@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Docs - The DevScholar Website</title>
     <link href="/styles/page-layout.css" rel="stylesheet">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 </head>
 
 <body>
@@ -15,8 +15,40 @@
         </div>
         <nav>
             <div class="navigation-bar" style="background-color:DodgerBlue;color:white;">
-                <a href="/">Home</a> | <a href="/en-US/about.html">About</a> | <a href="/en-US/docs/index.html">Docs</a>
+                <img src="/images/icons/three-bar.svg" class="sidebar-toggler" onclick="switchSidebarVisibility();"> <a
+                    href="/">Home</a> |        <nav>
+            <div class="navigation-bar" style="background-color:DodgerBlue;color:white;">
+                <img src="/images/icons/three-bar.svg" class="sidebar-toggler" onclick="switchSidebarVisibility();"> <a
+                    href="/">Home</a> | <a href="/en-US/about.html">About</a> | <a
+                    href="/en-US/docs/index.html">Docs</a>
             </div>
+            <script>
+                function switchSidebarVisibility() {
+                    if (window.getComputedStyle(document.getElementsByClassName("sidebar")).display != "none") {
+                        document.getElementsByClassName("sidebar")[0].display = "none";
+                        document.getElementsByClassName("sidebar-toggler")[0].style.borderStyle="inset";
+                    }
+                    else {
+                        document.getElementsByClassName("sidebar")[0].display = "static";
+                        document.getElementsByClassName("sidebar-toggler")[0].style.borderStyle="none";
+                    }
+                }
+            </script>
+        </nav>| <a
+                    href="/en-US/docs/index.html">Docs</a>
+            </div>
+            <script>
+                function switchSidebarVisibility() {
+                    if (window.getComputedStyle(document.getElementsByClassName("sidebar")).display != "none") {
+                        document.getElementsByClassName("sidebar")[0].display = "none";
+                        document.getElementsByClassName("sidebar-toggler")[0].style.borderStyle="inset";
+                    }
+                    else {
+                        document.getElementsByClassName("sidebar")[0].display = "static";
+                        document.getElementsByClassName("sidebar-toggler")[0].style.borderStyle="none";
+                    }
+                }
+            </script>
         </nav>
         <div class="content">
             <aside class="aside" style="border-right: 1px solid blue;">
@@ -34,7 +66,8 @@
                         Tutorials
                     </h2>
                     <ul>
-                        <li><a href="/en-US/docs/tutorials/rust-for-js-devs/index.html">Rust For JavaScript Developers</a></li>
+                        <li><a href="/en-US/docs/tutorials/rust-for-js-devs/index.html">Rust For JavaScript
+                                Developers</a></li>
                     </ul>
                 </div>
             </main>

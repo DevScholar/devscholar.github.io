@@ -1,10 +1,9 @@
 @font-face {
     font-family: "Roboto";
     src: url("/fonts/roboto-2014/Roboto-Regular.ttf");
-  }
+}
 
-*
-{
+* {
     font-family: Roboto;
 }
 
@@ -34,15 +33,36 @@ body {
 
 .sidebar {
     width: 300px;
-    padding-left:20px;
+    padding-left: 20px;
     padding-top: 20px;
 }
 
-.sidebar ul,.sidebar li
-{
-list-style-type: none;
+.sidebar ul,
+.sidebar li {
+    list-style-type: none;
 }
 
 .main {
     padding: 20px;
+}
+
+@media only screen and (orientation: portrait) {
+    .sidebar {
+        display: none;
+    }
+
+    .sidebar .show {
+        display: absolute;
+    }
+
+    .sidebar-toggler
+    {
+        display:none;
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    .sidebar {
+        display: static;
+    }
 }
