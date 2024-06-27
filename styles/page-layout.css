@@ -16,6 +16,7 @@ body {
 
 .content {
     display: flex;
+    margin: 10px;
 }
 
 .nav-bar {
@@ -32,7 +33,7 @@ body {
 .sidebar {
     border-right: 1px solid blue;
     width: 300px;
-    flex-shrink:0;
+    flex-shrink: 0;
 
 }
 
@@ -41,7 +42,9 @@ body {
     list-style-type: none;
 }
 
-.main {}
+.main {
+    margin-left: 10px;
+}
 
 @media only screen and (orientation: portrait) {
     .sidebar {
