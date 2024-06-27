@@ -1,0 +1,6 @@
+<!--start template "dsw_footer" insert-->
+<hr>
+<footer>
+<p>(C) Contributors. Unless otherwise stated, all contents on this website is licensed under CC-BY 4.0 or higher.</p>
+</footer>
+<!--end template "dsw_footer" insert-->

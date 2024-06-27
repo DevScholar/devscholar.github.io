@@ -21,6 +21,8 @@ body {
 
 .nav-bar {
     padding-left: 25px;
+    background-color: dodgerblue;
+    color:white;
 }
 
 .nav-bar a {
@@ -29,6 +31,7 @@ body {
 }
 
 .sidebar {
+    border-right: 1px solid blue;
     width: 300px;
     padding-left: 20px;
     padding-top: 20px;

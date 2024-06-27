@@ -1,3 +1,5 @@
 <!--start template "dsw_banner" insert-->
+<div class="banner">
 <img src="/images/banners/dswlogo.png">
+</div>
 <!--end template "dsw_banner" insert-->
