@@ -45,6 +45,7 @@ body {
 
 .main {
     padding: 20px;
+    float:left;
 }
 
 @media only screen and (orientation: portrait) {
