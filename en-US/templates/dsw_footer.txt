@@ -1,5 +1,4 @@
 <!--start template "dsw_footer" insert-->
-<hr>
 <div class="footer">
 <hr>
 <footer>

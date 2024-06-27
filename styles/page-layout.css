@@ -14,14 +14,14 @@ body {
     width: 100%;
 }
 
-.banner {
-    width: 100%;
+.content {
+    display: flex;
 }
 
 .nav-bar {
     padding-left: 25px;
     background-color: dodgerblue;
-    color:white;
+    color: white;
 }
 
 .nav-bar a {
@@ -32,9 +32,8 @@ body {
 .sidebar {
     border-right: 1px solid blue;
     width: 300px;
-    padding-left: 20px;
-    padding-top: 20px;
-    float:left;
+    flex-shrink:0;
+
 }
 
 .sidebar ul,
@@ -42,11 +41,7 @@ body {
     list-style-type: none;
 }
 
-.main {
-    padding: 20px;
-    float:left;
-    position: absolute;
-}
+.main {}
 
 @media only screen and (orientation: portrait) {
     .sidebar {
@@ -57,9 +52,8 @@ body {
         display: absolute;
     }
 
-    .sidebar-toggler
-    {
-        display:none;
+    .sidebar-toggler {
+        display: none;
     }
 }
 
@@ -70,7 +64,6 @@ body {
 }
 
 
-.footer
-{
-    clear:both;
+.footer {
+    clear: both;
 }
