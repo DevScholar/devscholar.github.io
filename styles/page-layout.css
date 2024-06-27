@@ -1,0 +1,48 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("/fonts/roboto-2014/Roboto-Regular.ttf");
+  }
+
+*
+{
+    font-family: Roboto;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.banner {
+    width: 100%;
+}
+
+.content {
+    display: flex;
+}
+
+.navigation-bar {
+    padding-left: 25px;
+}
+
+.navigation-bar a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.sidebar {
+    width: 300px;
+    padding-left:20px;
+    padding-top: 20px;
+}
+
+.sidebar ul,.sidebar li
+{
+list-style-type: none;
+}
+
+.main {
+    padding: 20px;
+}
