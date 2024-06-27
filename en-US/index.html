@@ -10,24 +10,39 @@
 
 <body>
     <div class="outermost-container">
-        {{dsw_banner}}
-        <nav>
-            {{dsw_nav_bar}}
-        </nav>
+        <!--start template "dsw_banner" insert-->
+<img src="/images/banners/dswlogo.png">
+<!--end template "dsw_banner" insert-->
+<!--end template "dsw_sidebar" insert-->}
+
+        <!--start template "dsw_nav_bar" insert-->
+<div class="nav-bar">
+<nav>
+<a href="/en-US/index.html">Home</a> | <a href="/en-US/docs/index.html">Docs</a> | <a href="/en-US/about.html">About</a>
+</nav>
+</div>
+<!--end template "dsw_nav_bar" insert-->
+
         <div class="content">
-            <aside>
-                {{dsw_sidebar}}
-            </aside>
-            <main>
-                <div class="main">
-                    <p>Welcome to the DevScholar Website! This website is a personal website related to programming.</p>
-                    <hr>
-                    <a href="/en-US/docs/tutorials/rust-for-js-devs/index.html">Rust For JavaScript Developers</a>
-                    <p>Rust For JavaScript Developers is a Rust tutorial for JavaScript developers that covers many
-                        common Rust features. The tutorial is based on Microsoft's C#/.NET for JavaScript Developers.
-                    </p>
-                </div>
-            </main>
+
+            <!--start template "dsw_sidebar" insert-->
+<div class="sidebar">
+<aside>
+<p>Product Families</p>
+</aside>
+</div>
+<!--end template "dsw_sidebar" insert-->}
+
+
+            <div class="main">
+                <p>Welcome to the DevScholar Website! This website is a personal website related to programming.</p>
+                <hr>
+                <a href="/en-US/docs/tutorials/rust-for-js-devs/index.html">Rust For JavaScript Developers</a>
+                <p>Rust For JavaScript Developers is a Rust tutorial for JavaScript developers that covers many
+                    common Rust features. The tutorial is based on Microsoft's C#/.NET for JavaScript Developers.
+                </p>
+            </div>
+
 
         </div>
         {{dsw_footer}}

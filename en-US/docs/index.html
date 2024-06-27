@@ -10,13 +10,28 @@
 
 <body>
     <div class="outermost-container">
-            {{dsw_banner}}
-        <nav>
-           {{dsw_nav_bar}} 
-        </nav>
+            <!--start template "dsw_banner" insert-->
+<img src="/images/banners/dswlogo.png">
+<!--end template "dsw_banner" insert-->
+<!--end template "dsw_sidebar" insert-->}
+        
+           <!--start template "dsw_nav_bar" insert-->
+<div class="nav-bar">
+<nav>
+<a href="/en-US/index.html">Home</a> | <a href="/en-US/docs/index.html">Docs</a> | <a href="/en-US/about.html">About</a>
+</nav>
+</div>
+<!--end template "dsw_nav_bar" insert--> 
+        
         <div class="content">
-            <aside>{{dsw_sidebar}}</aside>
-            <main>
+            <!--start template "dsw_sidebar" insert-->
+<div class="sidebar">
+<aside>
+<p>Product Families</p>
+</aside>
+</div>
+<!--end template "dsw_sidebar" insert-->}
+            
                 <div class="main">
                     <h1>Docs</h1>
                     <h2>
@@ -27,7 +42,7 @@
                                 Developers</a></li>
                     </ul>
                 </div>
-            </main>
+            
 
         </div>
         {{dsw_footer}}

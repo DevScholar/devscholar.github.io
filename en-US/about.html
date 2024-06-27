@@ -10,20 +10,35 @@
 
 <body>
     <div class="outermost-container">
-        {{dsw_banner}}
-        <nav>
-            {{dsw_nav_bar}}
-        </nav>
+        <!--start template "dsw_banner" insert-->
+<img src="/images/banners/dswlogo.png">
+<!--end template "dsw_banner" insert-->
+<!--end template "dsw_sidebar" insert-->}
+        
+            <!--start template "dsw_nav_bar" insert-->
+<div class="nav-bar">
+<nav>
+<a href="/en-US/index.html">Home</a> | <a href="/en-US/docs/index.html">Docs</a> | <a href="/en-US/about.html">About</a>
+</nav>
+</div>
+<!--end template "dsw_nav_bar" insert-->
+        
         <div class="content">
-            <aside>{{dsw_sidebar}}</aside>
-            <main>
+            <!--start template "dsw_sidebar" insert-->
+<div class="sidebar">
+<aside>
+<p>Product Families</p>
+</aside>
+</div>
+<!--end template "dsw_sidebar" insert-->}
+            
                 <div class="main">
                     <h1>About</h1>
                     <p>The DevScholar Website is a website built by an amateur programming enthusiast. The meaning of
                         the name of this website is that by reading the documentation on this website and using the
                         software on this website, ordinary people can do things that only scholars can do.</p>
                 </div>
-            </main>
+            
 
         </div>
         {{dsw_footer}}

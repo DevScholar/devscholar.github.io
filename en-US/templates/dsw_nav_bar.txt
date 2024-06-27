@@ -1,0 +1,7 @@
+<!--start template "dsw_nav_bar" insert-->
+<div class="nav-bar">
+<nav>
+<a href="/en-US/index.html">Home</a> | <a href="/en-US/docs/index.html">Docs</a> | <a href="/en-US/about.html">About</a>
+</nav>
+</div>
+<!--end template "dsw_nav_bar" insert-->

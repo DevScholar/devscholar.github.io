@@ -18,15 +18,12 @@ body {
     width: 100%;
 }
 
-.content {
-    display: flex;
-}
 
-.navigation-bar {
+.nav-bar {
     padding-left: 25px;
 }
 
-.navigation-bar a {
+.nav-bar a {
     color: inherit;
     text-decoration: none;
 }
@@ -35,6 +32,7 @@ body {
     width: 300px;
     padding-left: 20px;
     padding-top: 20px;
+    float:left;
 }
 
 .sidebar ul,
