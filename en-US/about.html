@@ -5,91 +5,28 @@
     <meta charset="utf-8">
     <title>About - The DevScholar Website</title>
     <link href="/styles/page-layout.css" rel="stylesheet">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 </head>
 
 <body>
     <div class="outermost-container">
-        <div class="banner" role="banner">
-            <img src="/images/banners/dswlogo.png" height="60" width="460" alt="DevScholar Logo">
-        </div>
+        {{dsw_banner}}
         <nav>
-            <div class="navigation-bar" style="background-color:DodgerBlue;color:white;">
-                <img src="/images/icons/three-bar.svg" class="sidebar-toggler" onclick="switchSidebarVisibility();"> <a
-                    href="/">Home</a> | <a href="/en-US/about.html">About</a> | <a
-                    href="/en-US/docs/index.html">Docs</a>
-            </div>
-            <script>
-                function switchSidebarVisibility() {
-                    if (window.getComputedStyle(document.getElementsByClassName("sidebar")).display != "none") {
-                        document.getElementsByClassName("sidebar")[0].display = "none";
-                        document.getElementsByClassName("sidebar-toggler")[0].style.borderStyle="inset";
-                    }
-                    else {
-                        document.getElementsByClassName("sidebar")[0].display = "static";
-                        document.getElementsByClassName("sidebar-toggler")[0].style.borderStyle="none";
-                    }
-                }
-            </script>
-        </nav>|        <nav>
-            <div class="navigation-bar" style="background-color:DodgerBlue;color:white;">
-                <img src="/images/icons/three-bar.svg" class="sidebar-toggler" onclick="switchSidebarVisibility();"> <a
-                    href="/">Home</a> | <a href="/en-US/about.html">About</a> | <a
-                    href="/en-US/docs/index.html">Docs</a>
-            </div>
-            <script>
-                function switchSidebarVisibility() {
-                    if (window.getComputedStyle(document.getElementsByClassName("sidebar")).display != "none") {
-                        document.getElementsByClassName("sidebar")[0].display = "none";
-                        document.getElementsByClassName("sidebar-toggler")[0].style.borderStyle="inset";
-                    }
-                    else {
-                        document.getElementsByClassName("sidebar")[0].display = "static";
-                        document.getElementsByClassName("sidebar-toggler")[0].style.borderStyle="none";
-                    }
-                }
-            </script>
-        </nav>|        <nav>
-            <div class="navigation-bar" style="background-color:DodgerBlue;color:white;">
-                <img src="/images/icons/three-bar.svg" class="sidebar-toggler" onclick="switchSidebarVisibility();"> <a
-                    href="/">Home</a> | <a href="/en-US/about.html">About</a> | <a
-                    href="/en-US/docs/index.html">Docs</a>
-            </div>
-            <script>
-                function switchSidebarVisibility() {
-                    if (window.getComputedStyle(document.getElementsByClassName("sidebar")).display != "none") {
-                        document.getElementsByClassName("sidebar")[0].display = "none";
-                        document.getElementsByClassName("sidebar-toggler")[0].style.borderStyle="inset";
-                    }
-                    else {
-                        document.getElementsByClassName("sidebar")[0].display = "static";
-                        document.getElementsByClassName("sidebar-toggler")[0].style.borderStyle="none";
-                    }
-                }
-            </script>
+            {{dsw_nav_bar}}
         </nav>
         <div class="content">
-            <aside class="aside" style="border-right: 1px solid blue;">
-                <div class="sidebar">
-                    <p>Product Families</p>
-                    <ul>
-                        <li><a href="">Front End</a></li>
-                    </ul>
-                </div>
-            </aside>
+            <aside>{{dsw_sidebar}}</aside>
             <main>
                 <div class="main">
                     <h1>About</h1>
-                    <p>The DevScholar Website is a website built by an amateur programming enthusiast. The meaning of the name of this website is that by reading the documentation on this website and using the software on this website, ordinary people can do things that only scholars can do.</p>
+                    <p>The DevScholar Website is a website built by an amateur programming enthusiast. The meaning of
+                        the name of this website is that by reading the documentation on this website and using the
+                        software on this website, ordinary people can do things that only scholars can do.</p>
                 </div>
             </main>
 
         </div>
-        <div class="footer">
-            <hr>
-            <small>(C) Contributors. Unless otherwise stated, the content on this site is licensed under CC-BY-SA
-                version 4.0 or higher.</small>
-        </div>
+        {{dsw_footer}}
 
     </div>
 </body>
