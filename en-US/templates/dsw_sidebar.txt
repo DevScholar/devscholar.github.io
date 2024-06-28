@@ -1,7 +1,5 @@
-<!--start template "dsw_sidebar" insert-->
 <div class="sidebar">
 <aside>
 <p>Product Families</p>
 </aside>
 </div>
-<!--end template "dsw_sidebar" insert-->

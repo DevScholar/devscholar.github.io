@@ -4,28 +4,15 @@
 <head>
     <meta charset="utf-8">
     <title>About - The DevScholar Website</title>
-    <link href="/styles/page-layout.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-    <!--start template "dsw_head" insert-->
-    <!--end template "dsw_head" insert-->
+    <script src="en-US/templates/custom_insert.js"></script>
 </head>
 
 <body>
+    <custom-insert template="dsw_head"></custom-insert>
     <div class="outermost-container">
-        <!--start template "dsw_banner" insert-->
-        <div class="banner">
-            <img alt="DevScholar Logo" src="/images/banners/dswlogo.png" height="60">
-        </div>
-        <!--end template "dsw_banner" insert-->
-
-        <!--start template "dsw_nav_bar" insert-->
-        <div class="nav-bar">
-            <nav>
-                <a href="/en-US/index.html">Home</a> | <a href="/en-US/docs/index.html">Docs</a> | <a
-                    href="/en-US/about.html">About</a>
-            </nav>
-        </div>
-        <!--end template "dsw_nav_bar" insert-->
+        <custom-insert template="dsw_banner"></custom-insert>
+        <custom-insert template="dsw_nav_bar"></custom-insert>
 
         <div class="content">
             <!--start template "dsw_sidebar" insert-->

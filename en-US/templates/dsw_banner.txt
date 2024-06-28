@@ -1,5 +1,3 @@
-<!--start template "dsw_banner" insert-->
 <div class="banner">
 <img alt="DevScholar Logo" src="/images/banners/dswlogo.png" height="60">
 </div>
-<!--end template "dsw_banner" insert-->

@@ -45,28 +45,3 @@ body {
 .main {
     margin-left: 10px;
 }
-
-@media only screen and (orientation: portrait) {
-    .sidebar {
-        display: none;
-    }
-
-    .sidebar .show {
-        display: absolute;
-    }
-
-    .sidebar-toggler {
-        display: none;
-    }
-}
-
-@media only screen and (orientation: landscape) {
-    .sidebar {
-        display: static;
-    }
-}
-
-
-.footer {
-    clear: both;
-}
