@@ -1,5 +1,0 @@
-<div class="sidebar">
-<aside>
-<p>Product Families</p>
-</aside>
-</div>

@@ -14,6 +14,11 @@ body {
     width: 100%;
 }
 
+.banner
+{
+    width:100%;
+}
+
 .content {
     display: flex;
     margin: 10px;
@@ -30,10 +35,17 @@ body {
     text-decoration: none;
 }
 
+.openbtn,.closebtn
+{
+    background-color: transparent;
+    color:inherit;
+}
+
 .sidebar {
     border-right: 1px solid blue;
     width: 300px;
     flex-shrink: 0;
+    object-fit: scale-down;
 
 }
 
@@ -45,3 +57,18 @@ body {
 .main {
     margin-left: 10px;
 }
+
+@media screen and (max-width: 480px) and (orientation: portrait) {
+    .sidebar
+    {
+        display: none;
+    }
+
+    .sidebar.show
+    {
+        position: sticky;
+        display: block;
+        z-index:1;
+    }
+  }
+  
