@@ -23,10 +23,6 @@ body {
 }
 
 .banner h1 {
-    background: linear-gradient(to right, blue, 40%, navy);
-    background-clip: text;
-    font-family: "Archivo Black";
-    -webkit-text-fill-color: transparent;
     padding-left: 20px;
 
 }
@@ -76,8 +72,10 @@ body {
     }
 
     .sidebar.show {
-        position: sticky;
+        background-color: white;
+        position: absolute;
         display: block;
+        box-shadow: 10px 10px 5px gray;
         z-index: 1;
     }
 }
@@ -91,7 +89,7 @@ body {
 
 }
 
-.footer
-{
+.footer {
     padding-left: 10px;
+    padding-right: 10px;
 }
