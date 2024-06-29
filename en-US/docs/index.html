@@ -1,39 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 
 <head>
     <meta charset="utf-8">
-    <title>Docs - The DevScholar Website</title>    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-    <!--start template "dsw_head" insert-->
-    <!--end template "dsw_head" insert-->
+    <title>About - The DevScholar Website</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <script src="/en-US/templates/custom_insert.js" defer></script>
 </head>
 
 <body>
+    <custom-insert template="dsw_head"></custom-insert>
     <div class="outermost-container">
-        <!--start template "dsw_banner" insert-->
-        <div class="banner">
-            <img alt="DevScholar Logo" src="/images/banners/dswlogo.png" height="60">
-        </div>
-        <!--end template "dsw_banner" insert-->
-
-        <!--start template "dsw_nav_bar" insert-->
-        <div class="nav-bar">
-            <nav>
-                <a href="/en-US/index.html">Home</a> | <a href="/en-US/docs/index.html">Docs</a> | <a
-                    href="/en-US/about.html">About</a>
-            </nav>
-        </div>
-        <!--end template "dsw_nav_bar" insert-->
-
+        <custom-insert template="dsw_banner"></custom-insert>
+        <custom-insert template="dsw_nav_bar"></custom-insert>
         <div class="content">
-            <!--start template "dsw_sidebar" insert-->
-            <div class="sidebar">
-                <aside>
-                    <p>Product Families</p>
-                </aside>
-            </div>
-            <!--end template "dsw_sidebar" insert-->
-
+            <custom-insert template="dsw_sidebar"></custom-insert>
             <div class="main">
                 <h1>Docs</h1>
                 <h2>
@@ -44,20 +25,8 @@
                             Developers</a></li>
                 </ul>
             </div>
-
-
         </div>
-        <!--start template "dsw_footer" insert-->
-
-        <div class="footer">
-            <hr>
-            <footer>
-                <p>(C) Contributors. Unless otherwise stated, all contents on this website is licensed under CC-BY
-                    4.0 or higher.</p>
-            </footer>
-        </div>
-
-        <!--end template "dsw_footer" insert-->
+        <custom-insert template="dsw_footer"></custom-insert>
     </div>
 </body>
 

@@ -1,7 +1,15 @@
+@import url("/fonts/bootstrap-icons/bootstrap-icons.css");
+
 @font-face {
     font-family: "Roboto";
     src: url("/fonts/roboto-2014/Roboto-Regular.ttf");
 }
+
+@font-face {
+    font-family: "Archivo Black";
+    src: url("/fonts/Archivo-Black/otf/ArchivoBlack-Regular.otf");
+}
+
 
 * {
     font-family: Roboto;
@@ -14,17 +22,14 @@ body {
     width: 100%;
 }
 
-.banner
-{
-    width:100%;
-    object-fit: scale-down;
-}
+.banner h1 {
+    background: linear-gradient(to right, blue, 40%, navy);
+    background-clip: text;
+    font-family: "Archivo Black";
+    -webkit-text-fill-color: transparent;
+    padding-left: 20px;
 
-.banner img
-{
-max-width: 100%;
 }
-
 
 .content {
     display: flex;
@@ -42,10 +47,10 @@ max-width: 100%;
     text-decoration: none;
 }
 
-.openbtn,.closebtn
-{
+.openbtn,
+.closebtn {
     background-color: transparent;
-    color:inherit;
+    color: inherit;
 }
 
 .sidebar {
@@ -66,16 +71,27 @@ max-width: 100%;
 }
 
 @media screen and (max-width: 480px) and (orientation: portrait) {
-    .sidebar
-    {
+    .sidebar {
         display: none;
     }
 
-    .sidebar.show
-    {
+    .sidebar.show {
         position: sticky;
         display: block;
-        z-index:1;
+        z-index: 1;
     }
-  }
-  
+}
+
+@media not screen and (max-width: 480px) and (orientation: portrait) {
+
+    .openbtn,
+    .closebtn {
+        display: none;
+    }
+
+}
+
+.footer
+{
+    padding-left: 10px;
+}
