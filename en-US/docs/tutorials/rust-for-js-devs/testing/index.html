@@ -207,7 +207,7 @@
 </code></pre>
 <p>For more information, see "<a href="https://doc.rust-lang.org/book/ch11-02-running-tests.html#running-tests-in-parallel-or-consecutively">Running Tests in Parallel or Consecutively</a>".</p>
 <h2 id="output-in-tests"><a class="header" href="#output-in-tests">Output in Tests</a></h2>
-<p>For very complex integration or end-to-end test, .NET developers sometimes log what's happening during a test. The actual way they do this varies with each test framework. For example, in NUnit, this is as simple as using <code>Console.WriteLine</code>, but in XUnit, one uses <code>ITestOutputHelper</code>. In Rust, it's similar to NUnit; that is, one simply writes to the standard output using <code>println!</code>. The output captured during the running of the tests is not shown by default unless <code>cargo test</code> is run the with <code>--show-output</code> option:</p>
+<p>For very complex integration or end-to-end test, .NET developers sometimes log what's happening during a test. The actual way they do this varies with each test framework. In Rust, one simply writes to the standard output using <code>println!</code>. The output captured during the running of the tests is not shown by default unless <code>cargo test</code> is run the with <code>--show-output</code> option:</p>
 <pre><code>cargo test --show-output
 </code></pre>
 <p>For more information, see "<a href="https://doc.rust-lang.org/book/ch11-02-running-tests.html#showing-function-output">Showing Function Output</a>".</p>
