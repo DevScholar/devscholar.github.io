@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>主页 - The DevScholar Website</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <script src="/zh-CN/templates/custom_insert.js" defer></script>
+</head>
+
+<body>
+    <custom-insert template="dsw_head"></custom-insert>
+    <div class="outermost-container">
+        <custom-insert template="dsw_banner"></custom-insert>
+        <custom-insert template="dsw_nav_bar"></custom-insert>
+        <div class="content">
+            <custom-insert template="dsw_sidebar"></custom-insert>
+            <div class="main">
+                <p>欢迎来到“开发学者的网站” （The DevScholar Website）! 这是一个有关编程的网站。</p>
+                <hr>
+                <a href="/en-US/docs/tutorials/rust-for-js-devs/index.html">面向 JavaScript 开发人员的 Rust 教程（英文）</a>
+                <p>《面向 JavaScript 开发人员的 Rust 教程》是面向 JavaScript 开发人员的 Rust 教程，涵盖了许多
+                    常见的 Rust 功能。本教程基于微软的《C#/.NET for JavaScript Developers》。
+                </p>
+            </div>
+        </div>
+        <custom-insert template="dsw_footer"></custom-insert>
+    </div>
+</body>
+
+</html>

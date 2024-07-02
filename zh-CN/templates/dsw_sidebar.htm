@@ -1,0 +1,17 @@
+<div class="sidebar">
+    <aside>
+        <button class="closebtn" onclick="document.getElementsByClassName('sidebar')[0].classList.remove('show');"
+            aria-label="关闭侧边栏">
+            <i class="bi-x"></i>
+        </button>
+        <p>选择语言：</p>
+        <select id="language-select">
+            <option value="zh-CN" selected>中文</option>
+            <option value="en-US">English</option>
+        </select>
+        <button onclick='var selectedLanguage = document.getElementById("language-select").value;
+        window.location.href = "/" + selectedLanguage + "/index.html";'>跳转</button>
+
+        <p>产品系列</p>
+    </aside>
+</div>

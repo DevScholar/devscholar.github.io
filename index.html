@@ -12,6 +12,9 @@
         if (navigator.language === "en-US") {
             window.location.href = "./en-US/index.html";
         }
+        else if (navigator.language.includes("zh")) {
+            window.location.href = "./zh-CN/index.html";
+        }
         else {
             window.location.href = "./en-US/index.html";
         }     
