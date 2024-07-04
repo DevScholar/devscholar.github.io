@@ -191,7 +191,7 @@
 <tr><td><code>String</code> (mutable)</td><td><code>string</code></td><td>see Note 1.</td></tr>
 </tbody></table>
 </div>
-<p>There are differences in working with strings in Rust and JavaScript, but the equivalents above should be a good starting point. One of the differences is that Rust strings are UTF-8 encoded, but .NET strings are UTF-16 encoded. Rust strings can be mutable when declared as such, for example <code>let s = &amp;mut String::from("hello");</code>.</p>
+<p>There are differences in working with strings in Rust and JavaScript, but the equivalents above should be a good starting point. One of the differences is that Rust strings are UTF-8 encoded, but JavaScript strings are UTF-16 encoded. Rust strings can be mutable when declared as such, for example <code>let s = &amp;mut String::from("hello");</code>.</p>
 <p>There are also differences in using strings due to the concept of ownership. To read more about ownership with the String Type, see the <a href="https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html#the-string-type">Rust Book</a>.</p>
 <p>Notes:</p>
 <ol>
@@ -217,21 +217,8 @@ JavaScript:</p>
 </code></pre>
 <p>Rust</p>
 <pre><code class="language-rust">let str = r#"Hello, \World/!"#;</code></pre>
-<!--
-C# UTF-8 string literals are equivalent to Rust byte string literals.
-
-C#
-
-```csharp
-ReadOnlySpan<byte> str = "hello"u8;
-```
-
-Rust
-
-```rust
-let str = b"hello";
-```
--->
+<p>Rust UTF-8 string literals:</p>
+<pre><code class="language-rust">let str = b"hello";</code></pre>
 <h2 id="string-interpolation"><a class="header" href="#string-interpolation">String Interpolation</a></h2>
 <p>JavaScript has a built-in string interpolation feature that allows you to embed expressions inside a string literal. The following example shows how to use string interpolation in JavaScript:</p>
 <pre><code class="language-javascript">let name = "John";
