@@ -20,3 +20,22 @@ class CustomInsert extends HTMLElement {
 
 customElements.define("custom-insert", CustomInsert);
 
+class ScriptInsert extends HTMLElement {
+    constructor() {
+        super();
+        this.style.display = "none";
+        let scriptURL;
+        if (this.getAttribute("src")) {
+            scriptURL = this.getAttribute("src")
+        }
+        let self = this;
+        let scriptElement = document.createElement("script");
+        scriptElement.text = this.innerHTML;
+        if (scriptURL) {
+            scriptElement.src = scriptURL;
+        }
+        this.appendChild(scriptElement);
+    }
+}
+
+customElements.define("script-insert", ScriptInsert);
