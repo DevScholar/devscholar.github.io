@@ -1,0 +1,627 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Members - C for JavaScript Developers</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../ferris.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../introduction.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="../../license.html">License</a></li><li class="chapter-item expanded affix "><a href="../../contributing.html">Contributing</a></li><li class="chapter-item expanded "><a href="../../getting-started/index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../../language/index.html"><strong aria-hidden="true">2.</strong> Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../language/scalar-types.html"><strong aria-hidden="true">2.1.</strong> Scalar Types</a></li><li class="chapter-item expanded "><a href="../../language/strings.html"><strong aria-hidden="true">2.2.</strong> Strings</a></li><li class="chapter-item expanded "><a href="../../language/structured-types.html"><strong aria-hidden="true">2.3.</strong> Structured Types</a></li><li class="chapter-item expanded "><a href="../../language/custom-types/index.html"><strong aria-hidden="true">2.4.</strong> Custom Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../language/custom-types/classes.html"><strong aria-hidden="true">2.4.1.</strong> Classes</a></li><li class="chapter-item expanded "><a href="../../language/custom-types/records.html"><strong aria-hidden="true">2.4.2.</strong> Records</a></li><li class="chapter-item expanded "><a href="../../language/custom-types/structs.html"><strong aria-hidden="true">2.4.3.</strong> Structures</a></li><li class="chapter-item expanded "><a href="../../language/custom-types/interfaces.html"><strong aria-hidden="true">2.4.4.</strong> Interfaces</a></li><li class="chapter-item expanded "><a href="../../language/custom-types/enums.html"><strong aria-hidden="true">2.4.5.</strong> Enumeration Types</a></li><li class="chapter-item expanded "><a href="../../language/custom-types/members.html" class="active"><strong aria-hidden="true">2.4.6.</strong> Members</a></li></ol></li><li class="chapter-item expanded "><a href="../../language/local-functions.html"><strong aria-hidden="true">2.5.</strong> Local Functions</a></li><li class="chapter-item expanded "><a href="../../language/lambda-and-closures.html"><strong aria-hidden="true">2.6.</strong> Lambda and Closures</a></li><li class="chapter-item expanded "><a href="../../language/variables.html"><strong aria-hidden="true">2.7.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../../language/namespaces.html"><strong aria-hidden="true">2.8.</strong> Namespaces</a></li><li class="chapter-item expanded "><a href="../../language/equality.html"><strong aria-hidden="true">2.9.</strong> Equality</a></li><li class="chapter-item expanded "><a href="../../language/generics.html"><strong aria-hidden="true">2.10.</strong> Generics</a></li><li class="chapter-item expanded "><a href="../../language/polymorphism.html"><strong aria-hidden="true">2.11.</strong> Polymorphism</a></li><li class="chapter-item expanded "><a href="../../language/inheritance.html"><strong aria-hidden="true">2.12.</strong> Inheritance</a></li><li class="chapter-item expanded "><a href="../../language/exception-handling.html"><strong aria-hidden="true">2.13.</strong> Exception Handling</a></li><li class="chapter-item expanded "><a href="../../language/nullability-and-optionality.html"><strong aria-hidden="true">2.14.</strong> Nullability and Optionality</a></li><li class="chapter-item expanded "><a href="../../language/discards.html"><strong aria-hidden="true">2.15.</strong> Discards</a></li><li class="chapter-item expanded "><a href="../../language/conversion-and-casting.html"><strong aria-hidden="true">2.16.</strong> Conversion and Casting</a></li><li class="chapter-item expanded "><a href="../../language/operator-overloading.html"><strong aria-hidden="true">2.17.</strong> Operator Overloading</a></li><li class="chapter-item expanded "><a href="../../language/documentation-comments.html"><strong aria-hidden="true">2.18.</strong> Documentation Comments</a></li></ol></li><li class="chapter-item expanded "><a href="../../memory-management/index.html"><strong aria-hidden="true">3.</strong> Memory Management</a></li><li class="chapter-item expanded "><a href="../../resource-management/index.html"><strong aria-hidden="true">4.</strong> Resource Management</a></li><li class="chapter-item expanded "><a href="../../threading/index.html"><strong aria-hidden="true">5.</strong> Threading</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../threading/synchronization.html"><strong aria-hidden="true">5.1.</strong> Synchronization</a></li><li class="chapter-item expanded "><a href="../../threading/producer-consumer.html"><strong aria-hidden="true">5.2.</strong> Producer-Consumer</a></li></ol></li><li class="chapter-item expanded "><a href="../../testing/index.html"><strong aria-hidden="true">6.</strong> Testing</a></li><li class="chapter-item expanded "><a href="../../benchmarking/index.html"><strong aria-hidden="true">7.</strong> Benchmarking</a></li><li class="chapter-item expanded "><a href="../../logging-and-tracing/index.html"><strong aria-hidden="true">8.</strong> Logging and Tracing</a></li><li class="chapter-item expanded "><a href="../../conditional-compilation/index.html"><strong aria-hidden="true">9.</strong> Conditional Compilation</a></li><li class="chapter-item expanded "><a href="../../environment-and-configuration/index.html"><strong aria-hidden="true">10.</strong> Environment and Configuration</a></li><li class="chapter-item expanded "><a href="../../linq/index.html"><strong aria-hidden="true">11.</strong> LINQ</a></li><li class="chapter-item expanded "><a href="../../meta-programming/index.html"><strong aria-hidden="true">12.</strong> Meta Programming</a></li><li class="chapter-item expanded "><a href="../../asynchronous-programming/index.html"><strong aria-hidden="true">13.</strong> Asynchronous Programming</a></li><li class="chapter-item expanded "><a href="../../project-structure/index.html"><strong aria-hidden="true">14.</strong> Project Structure</a></li><li class="chapter-item expanded "><a href="../../compilation-and-building/index.html"><strong aria-hidden="true">15.</strong> Compilation and Building</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">C for JavaScript Developers</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="/edit/main/src/language/custom-types/members.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="members"><a class="header" href="#members">Members</a></h1>
+<h2 id="constructors"><a class="header" href="#constructors">Constructors</a></h2>
+<p>In C programming, constructors are not explicitly defined. Instead, you can achieve similar functionality by using factory functions that create and initialize instances of a struct. These factory functions can be standalone functions or associated functions of the struct. Conventionally, if there is only one factory function for a struct, it is commonly named new.</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef struct {
+    int x1, y1, x2, y2;
+} Rectangle;
+
+Rectangle newRectangle(int x1, int y1, int x2, int y2) {
+    Rectangle rect;
+    rect.x1 = x1;
+    rect.y1 = y1;
+    rect.x2 = x2;
+    rect.y2 = y2;
+    return rect;
+}
+
+int main() {
+    Rectangle myRect = newRectangle(0, 0, 100, 100);
+    printf("Rectangle coordinates: (%d, %d), (%d, %d)\n", myRect.x1, myRect.y1, myRect.x2, myRect.y2);
+    return 0;
+}
+</code></pre>
+<!--
+Since Rust functions (associated or otherwise) do not support overloading; the factory functions have to be named uniquely. For example, below are some examples of so-called constructors or factory functions available on `String`:
+
+- `String::new`: creates an empty string.
+- `String::with_capacity`: creates a string with an initial buffer capacity.
+- `String::from_utf8`: creates a string from bytes of UTF-8 encoded text.
+- `String::from_utf16`: creates a string from bytes of UTF-16 encoded text.
+
+In the case of an `enum` type in Rust, the variants act as the constructors. See [the section on enumeration types][enums] for more.
+
+See also:
+
+- [Constructors are static, inherent methods (C-CTOR)][rs-api-C-CTOR]
+
+  [enums]: enums.md
+  [rs-api-C-CTOR]: https://rust-lang.github.io/api-guidelines/predictability.html?highlight=new#constructors-are-static-inherent-methods-c-ctor
+-->
+<h2 id="methods-static--instance-based"><a class="header" href="#methods-static--instance-based">Methods (static &amp; instance-based)</a></h2>
+<p>C types (both <code>enum</code> and <code>struct</code>), can have static and instance-based methods. <!--In Rust-speak, a _method_ is always instance-based and is identified by the fact that its first parameter is named `self`. The `self` parameter has no type annotation since it's always the type to which the method belongs. A static method is called an _associated function_. In the example below, `new` is an associated function and the rest (`length`, `width` and `area`) are methods of the type:--></p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef struct {
+    int x1, y1, x2, y2;
+} Rectangle;
+
+Rectangle new_rectangle(int x1, int y1, int x2, int y2) {
+    Rectangle rect;
+    rect.x1 = x1;
+    rect.y1 = y1;
+    rect.x2 = x2;
+    rect.y2 = y2;
+    return rect;
+}
+
+int length(Rectangle *rect) {
+    return rect-&gt;y2 - rect-&gt;y1;
+}
+
+int width(Rectangle *rect) {
+    return rect-&gt;x2 - rect-&gt;x1;
+}
+
+int area(Rectangle *rect) {
+    return length(rect) * width(rect);
+}
+
+int main() {
+    Rectangle rect = new_rectangle(0, 0, 4, 3);
+    printf("Length: %d\n", length(&amp;rect));
+    printf("Width: %d\n", width(&amp;rect));
+    printf("Area: %d\n", area(&amp;rect));
+    return 0;
+}
+</code></pre>
+<h2 id="constants"><a class="header" href="#constants">Constants</a></h2>
+<p>A type in C can have constants. However, the most interesting aspect to note is that C allows a type instance to be defined as a constant too:</p>
+<pre><code class="language-c">struct Point {
+    int x;
+    int y;
+};
+
+const struct Point ZERO = {0, 0};
+</code></pre>
+<p>In JavaScript, you need to define a Point class, and then, simulate the construction behavior in Rust by setting a static property ZERO directly on the Point class.</p>
+<pre><code class="language-js">class Point {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+Point.ZERO = new Point(0, 0);
+</code></pre>
+<h2 id="events"><a class="header" href="#events">Events</a></h2>
+<p>C has no built-in support for type members to adverstise and fire events.</p>
+<h2 id="properties"><a class="header" href="#properties">Properties</a></h2>
+<p>In C, there are no built-in properties. To mimic property-like behavior, the user can use getter and setter functions.</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef struct {
+    int x1, y1, x2, y2;
+} Rectangle;
+
+Rectangle newRectangle(int x1, int y1, int x2, int y2) {
+    Rectangle rect = {x1, y1, x2, y2};
+    return rect;
+}
+
+// Getter functions
+int getX1(Rectangle *rect) { return rect-&gt;x1; }
+int getY1(Rectangle *rect) { return rect-&gt;y1; }
+int getX2(Rectangle *rect) { return rect-&gt;x2; }
+int getY2(Rectangle *rect) { return rect-&gt;y2; }
+
+// Setter functions
+void setX1(Rectangle *rect, int val) { rect-&gt;x1 = val; }
+void setY1(Rectangle *rect, int val) { rect-&gt;y1 = val; }
+void setX2(Rectangle *rect, int val) { rect-&gt;x2 = val; }
+void setY2(Rectangle *rect, int val) { rect-&gt;y2 = val; }
+
+// Computed properties
+int length(Rectangle *rect) { return rect-&gt;y2 - rect-&gt;y1; }
+int width(Rectangle *rect) { return rect-&gt;x2 - rect-&gt;x1; }
+int area(Rectangle *rect) { return length(rect) * width(rect); }
+
+int main() {
+    Rectangle rect = newRectangle(0, 0, 10, 20);
+    printf("Area of the rectangle: %d\n", area(&amp;rect));
+    return 0;
+}
+</code></pre>
+<h2 id="extension-methods"><a class="header" href="#extension-methods">Extension Methods</a></h2>
+<p>In JavaScript, you can use prototype to add new methods to existing classes. This approach allows you to add new behavior to an existing class without changing the existing class definition:</p>
+<pre><code class="language-js">//JavaScript doesn't have a StringBuilder class. This code is only used to demonstrate adding a new method to an existing class.
+class StringBuilder {
+    constructor(initialString) {
+        this.value = initialString;
+    }
+
+    toString() {
+        return this.value;
+    }
+}
+StringBuilder.prototype.wrap = function (left, right) {
+        this.value = left + this.value + right;
+    }
+const sb = new StringBuilder("Hello, World!");
+sb.wrap("&gt;&gt;&gt; ", " &lt;&lt;&lt;");
+console.log(sb.toString()); 
+</code></pre>
+<p>C does not have built-in support for extension methods or traits. To achieve similar functionality in C, one can use function pointers or structures to mimic extension methods. Here's a simplified example in C to demonstrate extending a type with a method:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+// Define the StringExt structure before using it.
+typedef struct StringExt {
+    char* data;
+    // The wrap function should take a pointer to StringExt to modify the original structure.
+    void (*wrap)(struct StringExt*, const char*, const char*);
+} StringExt;
+
+// The wrap function now correctly takes a pointer to a StringExt structure.
+void wrap(struct StringExt* self, const char* left, const char* right) {
+    if (self == NULL || self-&gt;data == NULL || left == NULL || right == NULL) {
+        return; // Safety check to avoid dereferencing NULL pointers.
+    }
+    // Allocate memory for the new string, including space for the null terminator.
+    char* temp = malloc(strlen(left) + strlen(self-&gt;data) + strlen(right) + 1);
+    if (temp == NULL) {
+        return; // Check for failed memory allocation.
+    }
+    // Concatenate the strings in the correct order.
+    strcpy(temp, left);
+    strcat(temp, self-&gt;data);
+    strcat(temp, right);
+    // Free the old data and update the StringExt structure with the new data.
+    free(self-&gt;data);
+    self-&gt;data = temp;
+}
+
+int main() {
+    // Declare the StringExt variable as an actual structure, not just a type.
+    StringExt s = { .data = strdup("Hello, World!"), .wrap = wrap };
+
+    // Call the wrap function with the address of the StringExt structure.
+    s.wrap(&amp;s, "&gt;&gt;&gt; ", " &lt;&lt;&lt;");
+    printf("%s\n", s.data); // Should now print: &gt;&gt;&gt; Hello, World! &lt;&lt;&lt;
+
+    free(s.data); // Free the allocated memory for the data string.
+    return 0;
+}
+</code></pre>
+<!--Just like in C#, for the method in the extension trait to become available
+(2), the extension trait must be imported (1).--> Also note, the extension trait identifier `StrWrapExt` can itself be discarded via `_` at the time of import without affecting the availability of `wrap` for `String`.
+<h2 id="visibilityaccess-modifiers"><a class="header" href="#visibilityaccess-modifiers">Visibility/Access modifiers</a></h2>
+<p>In JavaScript, there is no explicit visibility modifier like in C#, but similar functionality can be achieved with some conventions.</p>
+<p>In C, visibility and access control are primarily achieved through the use of header files and the concept of translation units. By declaring functions and variables in header files and including them in source files, C provides a way to control visibility. To mimic private members, one can use static variables or functions within a source file, limiting their scope to that file. For public visibility, declaring functions and variables in header files and including those headers in multiple source files allows for shared access. While C lacks explicit modifiers like pub in Rust, the structuring of code using header files and source files provides a similar level of control over visibility and access.</p>
+<!--
+For more details, see the [Visibility and Privacy][privis] section of The Rust
+Reference.
+
+  [privis]: https://doc.rust-lang.org/reference/visibility-and-privacy.html
+
+  <!--
+
+The table below is an approximation of the mapping of C# and Rust modifiers:
+
+| C#                            | Rust         | Note        |
+| ----------------------------- | ------------ | ----------- |
+| `private`                     | (default)    | See note 1. |
+| `protected`                   | N/A          | See note 2. |
+| `internal`                    | `pub(crate)` |             |
+| `protected internal` (family) | N/A          | See note 2. |
+| `public`                      | `pub`        |             |
+
+1. There is no keyword to denote private visibility; it's the default in Rust.
+
+2. Since there are no class-based type hierarchies in Rust, there is no
+   equivalent of `protected`.
+-->
+<h2 id="mutability"><a class="header" href="#mutability">Mutability</a></h2>
+<p>When designing a type in JavaScript, it is not the responsiblity of the developer to decide whether the a type is mutable or immutable; whether it supports destructive or non-destructive mutations. In Rust, mutability is expressed on methods through the type of the parameters as shown in the example below:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+struct Point {
+    int x;
+    int y;
+};
+
+struct Point new_point(int x, int y) {
+    struct Point p;
+    p.x = x;
+    p.y = y;
+    return p;
+}
+
+int get_x(struct Point *p) {
+    return p-&gt;x;
+}
+
+int get_y(struct Point *p) {
+    return p-&gt;y;
+}
+
+void set_x(struct Point *p, int val) {
+    p-&gt;x = val;
+}
+
+void set_y(struct Point *p, int val) {
+    p-&gt;y = val;
+}
+
+int main() {
+    struct Point p = new_point(3, 4);
+    printf("Point coordinates: (%d, %d)\n", get_x(&amp;p), get_y(&amp;p));
+    set_x(&amp;p, 7);
+    set_y(&amp;p, 8);
+    printf("Updated point coordinates: (%d, %d)\n", get_x(&amp;p), get_y(&amp;p));
+    return 0;
+}
+
+</code></pre>
+<p>In JavaScript, use ES6's destructuring assignment and object extension syntax to implement non-destructive mutation:</p>
+<pre><code class="language-js">class Point {
+    constructor(X, Y) {
+        this.X = X;
+        this.Y = Y;
+    }
+}
+
+let pt = new Point(123, 456);
+pt = { ...pt, X: 789 };
+console.log(pt); // prints: Point { X = 789, Y = 456 }
+</code></pre>
+<p>There is no <code>with</code> in C, but to emulate something similar in C, it has to be baked into the type's design:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef struct {
+    int x;
+    int y;
+} Point;
+
+Point new_point(int x, int y) {
+    Point p;
+    p.x = x;
+    p.y = y;
+    return p;
+}
+
+int get_x(Point p) {
+    return p.x;
+}
+
+int get_y(Point p) {
+    return p.y;
+}
+
+Point set_x(Point p, int val) {
+    p.x = val;
+    return p;
+}
+
+Point set_y(Point p, int val) {
+    p.y = val;
+    return p;
+}
+
+int main() {
+    Point p = new_point(3, 4);
+    printf("Initial Point: x=%d, y=%d\n", get_x(p), get_y(p));
+
+    p = set_x(p, 7);
+    p = set_y(p, 9);
+    printf("Modified Point: x=%d, y=%d\n", get_x(p), get_y(p));
+
+    return 0;
+}
+</code></pre>
+<p>In JavaScript, classes are used to simulate structs, and destructuring objects is assigned to implement something like <code>with</code>.</p>
+<pre><code class="language-js">class Point {
+    constructor(x, y) {
+        this.X = x;
+        this.Y = y;
+    }
+
+    toString() {
+        return `(${this.X}, ${this.Y})`;
+    }
+}
+
+let pt = new Point(123, 456);
+console.log(pt.toString()); // prints: (123, 456)
+pt = { ...pt, X: 789 };
+console.log(pt.toString()); // prints: (789, 456)
+
+</code></pre>
+<p>C has another syntax that may seem similar:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+typedef struct {
+    int x;
+    int y;
+} Point;
+
+Point createPoint(int x, int y) {
+    Point pt;
+    pt.x = x;
+    pt.y = y;
+    return pt;
+}
+
+void printPoint(Point pt) {
+    printf("Point { x: %d, y: %d }\n", pt.x, pt.y);
+}
+
+Point set_x(Point p, int val) {
+    p.x = val;
+    return p;
+}
+
+Point set_y(Point p, int val) {
+    p.y = val;
+    return p;
+}
+
+int get_x(Point p) {
+    return p.x;
+}
+
+int get_y(Point p) {
+    return p.y;
+}
+
+int main() {
+    Point p = createPoint(3, 4);
+    printf("Initial Point: x=%d, y=%d\n", get_x(p), get_y(p));
+
+    p = set_x(p, 7);
+    p = set_y(p, 9);
+    printf("Modified Point: x=%d, y=%d\n", get_x(p), get_y(p));
+
+    return 0;
+}
+</code></pre>
+<!--However, while `with` in C# does a non-destructive mutation (copy then update), the [struct update syntax] does (partial) _moves_ and works with fields only. Since the syntax requires access to the type's fields, it is generally more common to use it within the Rust module that has access to private details of its types.
+
+  [struct update syntax]: https://doc.rust-lang.org/stable/book/ch05-01-defining-structs.html#creating-instances-from-other-instances-with-struct-update-syntax
+-->
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../language/custom-types/enums.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../language/local-functions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../language/custom-types/enums.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../language/local-functions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../ferris.js"></script>
+
+
+    </div>
+    </body>
+</html>
