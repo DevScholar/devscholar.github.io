@@ -44,7 +44,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -53,21 +53,21 @@
      inkscape:groupmode="layer"
      id="layer1">
     <circle
-       style="fill:#000000;stroke:#000000;stroke-width:0.01;fill-opacity:1"
+       style="fill:#1515ff;stroke:#030303;stroke-width:0.01;fill-opacity:1;stroke-opacity:1"
        id="path1402"
        cx="6.2838535"
        cy="6.4255953"
        r="5.5751486" />
     <path
-       style="fill:#000000;fill-opacity:1;stroke:#00ff00;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#e9eb85;fill-opacity:1;stroke:#82d2ff;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 5.4883965,2.7515629 C 3.0160681,9.5799108 3.0160681,9.5799108 3.0160681,9.5799108"
        id="path1408" />
     <path
-       style="fill:#000000;fill-opacity:1;stroke:#00ff00;stroke-width:0.272959;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:#82d2ff;stroke-width:0.272959;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 6.4894517,3.6728352 c 2.4448024,3.202701 2.4448024,3.202701 2.4448024,3.202701"
        id="path1408-3" />
     <path
-       style="fill:#000000;fill-opacity:1;stroke:#00ff00;stroke-width:0.298792;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:#82d2ff;stroke-width:0.298792;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 8.9342541,6.8755362 C 4.9067677,9.2144013 4.9067677,9.2144013 4.9067677,9.2144013"
        id="path1408-3-7" />
   </g>
