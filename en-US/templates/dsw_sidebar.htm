@@ -1,9 +1,9 @@
 <div class="sidebar">
     <aside>
-        <button class="closebtn" onclick="document.getElementsByClassName('sidebar')[0].classList.remove('show');" aria-label="Close the sidebar">
-            <i class="bi-x"></i>
+        <button class="close-button" onclick="document.getElementsByClassName('sidebar')[0].classList.remove('show');" aria-label="Close the sidebar">
+            ❌
         </button>
-        <p>Choose a language</p>
+        <p>🌐Choose a language</p>
         <select id="language-select">
             <option value="zh-CN">简体中文</option>
             <option value="en-US" selected>English</option>
@@ -11,7 +11,4 @@
         <button onclick='var selectedLanguage = document.getElementById("language-select").value;
         window.location.href = "/" + selectedLanguage + "/index.html";'>go</button>
     </aside>
-    <script-insert>
-        alert("test")
-    </script-insert>
 </div>

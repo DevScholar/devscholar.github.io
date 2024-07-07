@@ -1,5 +1,3 @@
-@import url("/fonts/bootstrap-icons/bootstrap-icons.css");
-
 @font-face {
     font-family: "Roboto";
     src: url("/fonts/roboto-2014/Roboto-Regular.ttf");
@@ -43,8 +41,8 @@ body {
     text-decoration: none;
 }
 
-.openbtn,
-.closebtn {
+.open-button,
+.close-button {
     background-color: transparent;
     color: inherit;
 }
@@ -82,8 +80,8 @@ body {
 
 @media not screen and (max-width: 480px) and (orientation: portrait) {
 
-    .openbtn,
-    .closebtn {
+    .open-button,
+    .close-button {
         display: none;
     }
 
