@@ -281,13 +281,13 @@ SOFTWARE.</p>
 <p>Prefer to keep text short and use short, concise and realistic code examples to illustrate a point.</p>
 </li>
 <li>
-<p>As much as it is possible, always provide and compare examples in Rust and JavaScript.</p>
+<p>As much as it is possible, always provide and compare examples in C and JavaScript.</p>
 </li>
 <li>
-<p>Feel free to use latest JavaScript/Rust language features if it makes an example simpler, concise and alike across the two languages.</p>
+<p>Feel free to use latest JavaScript/C language features if it makes an example simpler, concise and alike across the two languages.</p>
 </li>
 <li>
-<p>Avoid using community packages in JavaScript examples. Stick to the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects">Global Objects</a> as much as possible. Since the <a href="https://en.cppreference.com/w/c/header">C Standard Library</a> has a much smaller API surface, it is more acceptable to call out crates for some functionality, should it be necessary for illustration (like <a href="https://en.cppreference.com/w/c/numeric/random/rand"><code>rand</code></a> for random number generation), but make sure they are mature, popular and rusted.</p>
+<p>Avoid using community packages in JavaScript examples. Stick to the JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects">Global Objects</a> as much as possible. Since the <a href="https://en.cppreference.com/w/c/header">C Standard Library</a> has a much smaller API surface, it is more acceptable to call out libraries for some functionality, should it be necessary for illustration (like <a href="https://en.cppreference.com/w/c/numeric/random/rand"><code>rand</code></a> for random number generation), but make sure they are mature, popular.</p>
 </li>
 <li>
 <p>Make example code as self-contained as possible and runnable (unless the idea is to illustrate a compile-time or run-time error).</p>
@@ -332,7 +332,7 @@ SOFTWARE.</p>
 </div>
 <p>Notes:</p>
 <ol>
-<li><a href="https://en.cppreference.com/w/c/keyword/char"><code>char</code></a> in Rust and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#string_type"><code>string</code></a> in JavaScript have different definitions. In Rust, a <code>char</code> is 1 bytes wide, but in JavaScript, a character is 2 bytes wide and stores the character using the UTF-16 encoding. There is no <code>char</code> type equivalent in JavaScript, only <code>string</code>. For more information, see the <a href="https://en.cppreference.com/w/c/keyword/char">C <code>char</code> documentation</a>.</li>
+<li><a href="https://en.cppreference.com/w/c/keyword/char"><code>char</code></a> in C and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#string_type"><code>string</code></a> in JavaScript have different definitions. In C, a <code>char</code> is 1 bytes wide, but in JavaScript, a character is 2 bytes wide and stores the character using the UTF-16 encoding. There is no <code>char</code> type equivalent in JavaScript, only <code>string</code>. For more information, see the <a href="https://en.cppreference.com/w/c/keyword/char">C <code>char</code> documentation</a>.</li>
 <li>There are only three number data type in JavaScript, <code>number</code>, which is essentially a floating point number. And the <code>bigint</code> type for storing numbers that exceed the range -(2<sup>53</sup> - 1) (<code>Number.MIN_SAFE_INTEGER</code>) to 2<sup>53</sup> - 1 (<code>Number.MAX_SAFE_INTEGER</code>). and the <code>bigdecimal</code> type for storing high-precision decimals.</li>
 <li>For historical reasons, JavaScript has two empty data types: <code>null</code> and <code>undefined</code>. <code>undefined</code> denotes a value that was never created, and null denotes a value that was created but intentionally left empty.
 See also:</li>
@@ -1225,9 +1225,9 @@ int main() {
 }
 </code></pre>
 <!--Just like in C#, for the method in the extension trait to become available
-(2), the extension trait must be imported (1).--> Also note, the extension trait identifier `StrWrapExt` can itself be discarded via `_` at the time of import without affecting the availability of `wrap` for `String`.
+(2), the extension trait must be imported (1). Also note, the extension trait identifier `StrWrapExt` can itself be discarded via `_` at the time of import without affecting the availability of `wrap` for `String`.-->
 <h2 id="visibilityaccess-modifiers"><a class="header" href="#visibilityaccess-modifiers">Visibility/Access modifiers</a></h2>
-<p>In JavaScript, there is no explicit visibility modifier like in C#, but similar functionality can be achieved with some conventions.</p>
+<p>In JavaScript, there is no explicit visibility modifiers, but similar functionality can be achieved with some conventions.</p>
 <p>In C, visibility and access control are primarily achieved through the use of header files and the concept of translation units. By declaring functions and variables in header files and including them in source files, C provides a way to control visibility. To mimic private members, one can use static variables or functions within a source file, limiting their scope to that file. For public visibility, declaring functions and variables in header files and including those headers in multiple source files allows for shared access. While C lacks explicit modifiers like pub in Rust, the structuring of code using header files and source files provides a similar level of control over visibility and access.</p>
 <!--
 For more details, see the [Visibility and Privacy][privis] section of The Rust
@@ -1253,7 +1253,7 @@ The table below is an approximation of the mapping of C# and Rust modifiers:
    equivalent of `protected`.
 -->
 <h2 id="mutability"><a class="header" href="#mutability">Mutability</a></h2>
-<p>When designing a type in JavaScript, it is not the responsiblity of the developer to decide whether the a type is mutable or immutable; whether it supports destructive or non-destructive mutations. In Rust, mutability is expressed on methods through the type of the parameters as shown in the example below:</p>
+<p>When designing a type in JavaScript, it is not the responsiblity of the developer to decide whether the a type is mutable or immutable; whether it supports destructive or non-destructive mutations. In C, mutability is expressed on methods through the type of the parameters as shown in the example below:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
 struct Point {
@@ -3234,7 +3234,7 @@ int main() {
 <p>There is no concept of packages in the JavaScript standard. However, some JavaScript runtimes, such as Node.js, have the concept of packages. NPM is most commonly used to install packages for Node.js, and various tools supported it.
 For example, adding a Node.js package reference with the Node,js CLI will add the
 dependency to the project file:</p>
-<p>npm install linq</p>
+<p><code>npm install linq</code></p>
 <p>The most common package registry for Node.js is <a href="https://www.npmjs.com/">npmjs.com</a> .</p>
 <p>There is no concept of packages in the C standard, different IDEs and different toolchains have different ways to manage packages.</p>
 <h2 id="static-code-analysis"><a class="header" href="#static-code-analysis">Static code analysis</a></h2>
