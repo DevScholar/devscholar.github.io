@@ -14,6 +14,38 @@ const t = useTranslations(lang);
 	</ul>
 </aside>
 
+<script>
+	const sidebar = document.getElementById('sidebar');
+	const sidebarClose = document.getElementById('sidebar-close');
+	const overlay = document.getElementById('overlay');
+	
+	function openSidebar() {
+		sidebar?.classList.add('open');
+		overlay?.classList.add('active');
+	}
+	
+	function closeSidebar() {
+		sidebar?.classList.remove('open');
+		overlay?.classList.remove('active');
+	}
+	
+	function handleSidebarClose() {
+		closeSidebar();
+	}
+	
+	sidebarClose?.addEventListener('click', handleSidebarClose);
+	overlay?.addEventListener('click', handleSidebarClose);
+	
+	document.addEventListener('click', (e) => {
+		const target = e.target as HTMLElement;
+		if (target.tagName === 'A' && sidebar?.classList.contains('open')) {
+			closeSidebar();
+		}
+	});
+	
+	(window as any).openSidebar = openSidebar;
+</script>
+
 <style>
 	.sidebar img {
 		width: 16px;
@@ -25,6 +57,22 @@ const t = useTranslations(lang);
 	}
 	
 	@media (max-width: 768px), (orientation: portrait) {
+		.sidebar {
+			position: fixed;
+			top: 0;
+			left: -220px;
+			width: 200px;
+			height: 100vh;
+			z-index: 1000;
+			transition: left 0.3s ease;
+			overflow-y: auto;
+			background-color: #c0c0c0;
+		}
+		
+		.sidebar.open {
+			left: 0;
+		}
+		
 		.sidebar-close {
 			display: block;
 			position: absolute;

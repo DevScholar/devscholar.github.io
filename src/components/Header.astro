@@ -9,6 +9,14 @@
 	</div>
 </header>
 
+<script>
+	const menuToggle = document.getElementById('menu-toggle');
+	
+	menuToggle?.addEventListener('click', () => {
+		(window as any).openSidebar?.();
+	});
+</script>
+
 <style>
 	.site-header {
 		display: flex;
