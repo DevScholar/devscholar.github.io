@@ -1,0 +1,44 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<aside id="sidebar" class="sidebar">
+	<button id="sidebar-close" class="sidebar-close" aria-label="Close menu">✕</button>
+	<ul>
+		<li><a href={`/${lang}/`}><img src="/assets/images/icons/html5-logo.svg" alt="">{t('webProgramming')}</a></li>
+		<li><a href={`/${lang}/products`}><img src="/assets/images/icons/utilities-terminal.svg" alt="">{t('products')}</a></li>
+		<li><a href={`/${lang}/devblogs`}><img src="/assets/images/icons/html5-logo.svg" alt="">{t('devblogs')}</a></li>
+	</ul>
+</aside>
+
+<style>
+	.sidebar img {
+		width: 16px;
+		height: 16px;
+	}
+	
+	.sidebar-close {
+		display: none;
+	}
+	
+	@media (max-width: 768px), (orientation: portrait) {
+		.sidebar-close {
+			display: block;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			background: none;
+			border: none;
+			font-size: 20px;
+			cursor: pointer;
+			color: #000000;
+		}
+		
+		.sidebar-close:hover {
+			color: #ff0000;
+		}
+	}
+</style>

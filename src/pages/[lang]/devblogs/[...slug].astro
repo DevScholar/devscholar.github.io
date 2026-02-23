@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+import { useTranslations } from '../../../i18n/ui';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('devblogs');
+  
+  return posts.map((post) => {
+    const parts = post.id.split('/');
+    const lang = parts[0];
+    const slug = parts.slice(1).join('/').replace(/\.md$/, '');
+    return {
+      params: { lang, slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const lang = Astro.params.lang as any;
+const t = useTranslations(lang);
+
+const { Content } = await post.render();
+---
+
+<BaseLayout title={post.data.title + ' - DevScholar'}>
+	<Header slot="header" />
+	<Sidebar slot="sidebar" />
+	
+	<article class="devblogs-content">
+		<h1>{post.data.title}</h1>
+		<p><small>{t('published')}: {post.data.pubDate.toLocaleDateString()}</small></p>
+		<hr />
+		<Content />
+	</article>
+</BaseLayout>
+
+<style>
+	.devblogs-content {
+		line-height: 1.6;
+	}
+	.devblogs-content hr {
+		border: none;
+		border-top: 1px solid #808080;
+		margin: 20px 0;
+	}
+</style>

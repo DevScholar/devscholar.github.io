@@ -1,0 +1,28 @@
+---
+import { getLangFromUrl } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<footer class="site-footer">
+  <hr />
+  <p>&copy; DevScholar</p>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 10px;
+    text-align: center;
+    background-color: #c0c0c0;
+    margin-top: auto;
+  }
+  .site-footer hr {
+    border: none;
+    border-top: 2px groove #ffffff;
+    margin: 10px 0;
+  }
+  .site-footer p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+</style>

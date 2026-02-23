@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import { useTranslations } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'zh-cn' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang as any);
+---
+
+<BaseLayout title="404 - Page Not Found">
+  <Header slot="header" />
+  <Sidebar slot="sidebar" />
+  
+  <section class="not-found">
+    <h1>404</h1>
+    <p>{t('pageNotFound')}</p>
+    <hr />
+    <p><a href={`/${lang}/`}>{t('home')}</a></p>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    text-align: center;
+  }
+  .not-found h1 {
+    font-size: 48px;
+    color: #000080;
+  }
+  .not-found p {
+    font-size: 18px;
+  }
+  .not-found hr {
+    border: none;
+    border-top: 1px solid #808080;
+    margin: 30px 0;
+  }
+</style>

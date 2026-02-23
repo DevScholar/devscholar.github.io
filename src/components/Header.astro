@@ -1,0 +1,47 @@
+---
+---
+<header class="site-header">
+	<div class="header-left">
+		<button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+			☰
+		</button>
+		<h1>DevScholar</h1>
+	</div>
+</header>
+
+<style>
+	.site-header {
+		display: flex;
+		align-items: center;
+		background-color: #000080;
+		color: #ffffff;
+		padding: 10px 20px;
+	}
+	
+	.header-left {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+	
+	.site-header h1 {
+		margin: 0;
+		font-size: 24px;
+	}
+	
+	.menu-toggle {
+		display: none;
+		background: none;
+		border: none;
+		color: #ffffff;
+		font-size: 24px;
+		cursor: pointer;
+		padding: 5px 10px;
+	}
+	
+	@media (max-width: 768px), (orientation: portrait) {
+		.menu-toggle {
+			display: block;
+		}
+	}
+</style>

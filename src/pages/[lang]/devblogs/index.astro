@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/ui';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'zh-cn' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang as any);
+
+const posts = (await getCollection('devblogs', ({ id }) => {
+  return id.startsWith(lang + '/');
+})).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title={t('devblogs') + ' - DevScholar'}>
+	<Header slot="header" />
+	<Sidebar slot="sidebar" />
+	
+	<section class="devblogs-list">
+		<h1>{t('devblogs')}</h1>
+		<ul>
+			{posts.map((post) => (
+				<li>
+					<a href={`/${lang}/devblogs/${post.slug}/`}>{post.data.title}</a>
+					<small>{post.data.pubDate.toLocaleDateString()}</small>
+				</li>
+			))}
+		</ul>
+	</section>
+</BaseLayout>
+
+<style>
+	.devblogs-list ul {
+		list-style: none;
+		padding: 0;
+	}
+	.devblogs-list li {
+		padding: 10px 0;
+		border-bottom: 1px dotted #808080;
+	}
+	.devblogs-list a {
+		font-size: 18px;
+		color: #0000ff;
+	}
+	.devblogs-list a:hover {
+		color: #ff0000;
+	}
+	.devblogs-list small {
+		color: #808080;
+	}
+</style>
