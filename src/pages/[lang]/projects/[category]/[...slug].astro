@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Header from '../../../../components/Header.astro';
+import Sidebar from '../../../../components/Sidebar.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  
+  return projects.map((project) => {
+    const parts = project.id.split('/');
+    const category = parts[0];
+    const lang = parts[1];
+    const slug = parts.slice(2).join('/').replace(/\.md$/, '');
+    return {
+      params: { lang, category, slug },
+      props: { project },
+    };
+  });
+}
+
+const { project } = Astro.props;
+const lang = Astro.params.lang as any;
+
+const { Content, headings } = await project.render();
+const hasH1Heading = headings.some(h => h.depth === 1);
+---
+
+<BaseLayout title={project.data.name + ' - DevScholar'} lang={lang}>
+	<Header slot="header" />
+	<Sidebar slot="sidebar" />
+	
+	<article class="projects-content">
+		{!hasH1Heading && (
+			<>
+				<h1>{project.data.name}</h1>
+				<Content />
+			</>
+		)}
+		{hasH1Heading && (
+			<>
+				<div class="content">
+					<Content />
+				</div>
+			</>
+		)}
+	</article>
+</BaseLayout>
+
+<style>
+	.projects-content {
+		line-height: 1.6;
+	}
+	.projects-content .content :global(h1:first-of-type) {
+		margin-top: 0;
+	}
+	.projects-content :global(a) {
+		color: #0066cc;
+	}
+	.projects-content :global(a:hover) {
+		color: #ff6600;
+	}
+	.projects-content :global(img) {
+		max-width: 100%;
+		height: auto;
+	}
+</style>

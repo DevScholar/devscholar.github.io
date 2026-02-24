@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import { getCollection } from 'astro:content';
+import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en-us' } },
+    { params: { lang: 'zh-cn' } },
+  ];
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang as any);
+
+const allProjects = await getCollection('projects', ({ id }) => {
+  return id.startsWith(lang + '/') || id.includes('/' + lang + '/');
+});
+const webProjects = allProjects.filter(p => p.data.category === 'web');
+---
+
+<BaseLayout title={t('webProgramming') + ' - DevScholar'} lang={lang}>
+	<Header slot="header" />
+	<Sidebar slot="sidebar" />
+	
+	<section class="projects">
+		<h1>{t('webProgramming')}</h1>
+		<ul>
+			{webProjects.length > 0 ? webProjects.map((project) => (
+				<li>
+					<h3><a href={`/${lang}/projects/${project.data.category}/${project.id.split('/').slice(2).join('/').replace(/\.md$/, '')}`}>{project.data.name}</a></h3>
+					<p>{project.data.description}</p>
+				</li>
+			)) : (
+				<li>
+					<p>{t('noProjects')}</p>
+				</li>
+			)}
+		</ul>
+	</section>
+</BaseLayout>
+
+<style>
+	.projects ul {
+		list-style: none;
+		padding: 0;
+	}
+	.projects li {
+		margin: 10px 0;
+		padding: 10px 0;
+	}
+	.projects h3 {
+		margin: 0 0 8px 0;
+	}
+	.projects p {
+		margin: 0;
+		color: #333;
+	}
+</style>

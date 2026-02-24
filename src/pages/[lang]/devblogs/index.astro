@@ -7,7 +7,7 @@ import { getLangFromUrl, useTranslations } from '../../../i18n/ui';
 
 export function getStaticPaths() {
   return [
-    { params: { lang: 'en' } },
+    { params: { lang: 'en-us' } },
     { params: { lang: 'zh-cn' } },
   ];
 }
@@ -18,9 +18,13 @@ const t = useTranslations(lang as any);
 const posts = (await getCollection('devblogs', ({ id }) => {
   return id.startsWith(lang + '/');
 })).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const getPostSlug = (id: string, lang: string) => {
+  return id.replace(/^[^/]+\//, '').replace(/\.md$/, '');
+};
 ---
 
-<BaseLayout title={t('devblogs') + ' - DevScholar'}>
+<BaseLayout title={t('devblogs') + ' - DevScholar'} lang={lang}>
 	<Header slot="header" />
 	<Sidebar slot="sidebar" />
 	
@@ -29,7 +33,7 @@ const posts = (await getCollection('devblogs', ({ id }) => {
 		<ul>
 			{posts.map((post) => (
 				<li>
-					<a href={`/${lang}/devblogs/${post.slug}/`}>{post.data.title}</a>
+					<a href={`/${lang}/devblogs/${getPostSlug(post.id, lang)}/`}>{post.data.title}</a>
 					<small>{post.data.pubDate.toLocaleDateString()}</small>
 				</li>
 			))}

@@ -23,18 +23,35 @@ const { post } = Astro.props;
 const lang = Astro.params.lang as any;
 const t = useTranslations(lang);
 
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
+const hasH1Heading = headings.some(h => h.depth === 1);
+
+const publishedDate = post.data.pubDate.toLocaleDateString();
+const publishedText = `${t('published')}: ${publishedDate}`;
+const authorText = post.data.author ? `${t('author')}: ${post.data.author}` : '';
 ---
 
-<BaseLayout title={post.data.title + ' - DevScholar'}>
+<BaseLayout title={post.data.title + ' - DevScholar'} lang={lang}>
 	<Header slot="header" />
 	<Sidebar slot="sidebar" />
 	
 	<article class="devblogs-content">
-		<h1>{post.data.title}</h1>
-		<p><small>{t('published')}: {post.data.pubDate.toLocaleDateString()}</small></p>
-		<hr />
-		<Content />
+		{!hasH1Heading && (
+			<>
+				<h1>{post.data.title}</h1>
+				<p class="published"><small>{publishedText}{authorText && <span class="separator"> | </span>}{authorText}</small></p>
+				<Content />
+			</>
+		)}
+		{hasH1Heading && (
+			<>
+				<h1 class="title">{post.data.title}</h1>
+				<p class="published"><small>{publishedText}{authorText && <span class="separator"> | </span>}{authorText}</small></p>
+				<div class="content">
+					<Content />
+				</div>
+			</>
+		)}
 	</article>
 </BaseLayout>
 
@@ -42,9 +59,16 @@ const { Content } = await post.render();
 	.devblogs-content {
 		line-height: 1.6;
 	}
-	.devblogs-content hr {
-		border: none;
-		border-top: 1px solid #808080;
-		margin: 20px 0;
+	.devblogs-content h1.title {
+		text-align: center;
+		margin-bottom: 5px;
+	}
+	.devblogs-content .published {
+		text-align: center;
+		margin: 0 0 20px 0;
+		color: #666;
+	}
+	.devblogs-content .content :global(h1:first-of-type) {
+		display: none;
 	}
 </style>

@@ -1,11 +1,15 @@
 ---
+import { getLangFromUrl } from "../i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
 ---
+
 <header class="site-header">
 	<div class="header-left">
 		<button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
 			☰
 		</button>
-		<h1>DevScholar</h1>
+		<h1><a href={`/${lang}/`}>DevScholar</a></h1>
 	</div>
 </header>
 
@@ -21,9 +25,13 @@
 	.site-header {
 		display: flex;
 		align-items: center;
-		background-color: #000080;
+		background-image: url('/assets/images/devscholar-banner.svg');
+		background-size: 100% auto;
+		background-position: left;
+		background-repeat: no-repeat;
 		color: #ffffff;
 		padding: 10px 20px;
+		min-height: 60px;
 	}
 	
 	.header-left {
@@ -35,6 +43,11 @@
 	.site-header h1 {
 		margin: 0;
 		font-size: 24px;
+	}
+
+	.site-header h1 a {
+		color: inherit;
+		text-decoration: none;
 	}
 	
 	.menu-toggle {

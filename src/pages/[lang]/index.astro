@@ -7,7 +7,7 @@ import { getLangFromUrl, useTranslations } from '../../i18n/ui';
 
 export function getStaticPaths() {
   return [
-    { params: { lang: 'en' } },
+    { params: { lang: 'en-us' } },
     { params: { lang: 'zh-cn' } },
   ];
 }
@@ -19,33 +19,22 @@ const posts = (await getCollection('devblogs', ({ id }) => {
   return id.startsWith(lang + '/');
 })).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const products = await getCollection('products');
+const projects = await getCollection('projects', ({ id }) => {
+  return id.startsWith(lang + '/');
+});
+
+const getPostSlug = (id: string, lang: string) => {
+  return id.replace(/^[^/]+\//, '').replace(/\.md$/, '');
+};
 ---
 
-<BaseLayout title="DevScholar">
+<BaseLayout title="DevScholar" lang={lang}>
 	<Header slot="header" />
 	<Sidebar slot="sidebar" />
 	
 	<section class="home">
 		<h1>{t('welcome')}</h1>
 		<p>{t('welcomeDesc')}</p>
-
-		<h2>{t('latestPosts')}</h2>
-		<ul class="devblogs-list">
-			{posts.slice(0, 3).map((post) => (
-				<li><a href={`/${lang}/devblogs/${post.slug}/`}>{post.data.title}</a></li>
-			))}
-		</ul>
-
-		<h2>{t('products')}</h2>
-		<ul class="product-list">
-			{products.map((product) => (
-				<li>
-					<a href={product.data.website || '#'}>{product.data.name}</a>
-					<p>{product.data.description}</p>
-				</li>
-			))}
-		</ul>
 	</section>
 </BaseLayout>
 
@@ -53,22 +42,18 @@ const products = await getCollection('products');
 	.home h2 {
 		margin-top: 30px;
 	}
-	.devblogs-list, .product-list {
+	.devblogs-list, .project-list {
 		list-style: disc;
 		padding-left: 20px;
 	}
-	.product-list li {
+	.project-list li {
 		margin-bottom: 15px;
 	}
-	.product-list a {
-		color: #0000ff;
-		font-size: 16px;
+	.project-list h3 {
+		margin: 0 0 5px 0;
 	}
-	.product-list a:hover {
-		color: #ff0000;
-	}
-	.product-list p {
-		margin: 5px 0 0 0;
+	.project-list p {
+		margin: 0;
 		color: #808080;
 	}
 </style>

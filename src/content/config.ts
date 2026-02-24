@@ -7,18 +7,19 @@ const devblogs = defineCollection({
     description: z.string(),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
+    author: z.string().optional(),
   }),
 });
 
-const products = defineCollection({
+const projects = defineCollection({
   type: 'content',
   schema: z.object({
     name: z.string(),
     description: z.string(),
-    category: z.string(),
+    category: z.enum(['web', 'system']),
     website: z.string().optional(),
     github: z.string().optional(),
   }),
 });
 
-export const collections = { devblogs, products };
+export const collections = { devblogs, projects };

@@ -6,7 +6,7 @@ import { useTranslations } from '../../i18n/ui';
 
 export function getStaticPaths() {
   return [
-    { params: { lang: 'en' } },
+    { params: { lang: 'en-us' } },
     { params: { lang: 'zh-cn' } },
   ];
 }
@@ -15,7 +15,7 @@ const { lang } = Astro.params;
 const t = useTranslations(lang as any);
 ---
 
-<BaseLayout title="404 - Page Not Found">
+<BaseLayout title="404 - Page Not Found" lang={lang}>
   <Header slot="header" />
   <Sidebar slot="sidebar" />
   

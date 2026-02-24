@@ -1,48 +1,89 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/ui';
+import { getLangFromUrl, useTranslations } from "../i18n/ui";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <aside id="sidebar" class="sidebar">
-	<button id="sidebar-close" class="sidebar-close" aria-label="Close menu">✕</button>
-	<ul>
-		<li><a href={`/${lang}/`}><img src="/assets/images/icons/html5-logo.svg" alt="">{t('webProgramming')}</a></li>
-		<li><a href={`/${lang}/products`}><img src="/assets/images/icons/utilities-terminal.svg" alt="">{t('products')}</a></li>
-		<li><a href={`/${lang}/devblogs`}><img src="/assets/images/icons/html5-logo.svg" alt="">{t('devblogs')}</a></li>
+	<button id="sidebar-close" class="sidebar-close" aria-label="Close menu"
+		>✕</button
+	>
+	<ul class="treeview">
+		<li>
+			<details open>
+				<summary>
+					<img
+						src="/assets/images/icons/treeview-expand.svg"
+						class="treeview-icon expand"
+						alt=""
+					/>
+					<img
+						src="/assets/images/icons/treeview-collapse.svg"
+						class="treeview-icon collapse"
+						alt=""
+					/>
+					{t("projects")}
+				</summary>
+				<ul>
+					<li>
+						<a href={`/${lang}/web-programming`}
+							><img
+								src="/assets/images/icons/html5-logo.svg"
+								alt=""
+							/>{t("webProgramming")}
+						</a>
+					</li>
+					<li>
+						<a href={`/${lang}/system-programming`}
+							><img
+								src="/assets/images/icons/utilities-terminal.svg"
+								alt=""
+							/>{t("systemProgramming")}
+						</a>
+					</li>
+				</ul>
+			</details>
+		</li>
+		<li>
+			<a href={`/${lang}/devblogs`}
+				><img src="/assets/images/icons/hand-pencil-corrected.svg" alt="" />{
+					t("devblogs")
+				}
+			</a>
+		</li>
 	</ul>
 </aside>
 
 <script>
-	const sidebar = document.getElementById('sidebar');
-	const sidebarClose = document.getElementById('sidebar-close');
-	const overlay = document.getElementById('overlay');
-	
+	const sidebar = document.getElementById("sidebar");
+	const sidebarClose = document.getElementById("sidebar-close");
+	const overlay = document.getElementById("overlay");
+
 	function openSidebar() {
-		sidebar?.classList.add('open');
-		overlay?.classList.add('active');
+		sidebar?.classList.add("open");
+		overlay?.classList.add("active");
 	}
-	
+
 	function closeSidebar() {
-		sidebar?.classList.remove('open');
-		overlay?.classList.remove('active');
+		sidebar?.classList.remove("open");
+		overlay?.classList.remove("active");
 	}
-	
+
 	function handleSidebarClose() {
 		closeSidebar();
 	}
-	
-	sidebarClose?.addEventListener('click', handleSidebarClose);
-	overlay?.addEventListener('click', handleSidebarClose);
-	
-	document.addEventListener('click', (e) => {
+
+	sidebarClose?.addEventListener("click", handleSidebarClose);
+	overlay?.addEventListener("click", handleSidebarClose);
+
+	document.addEventListener("click", (e) => {
 		const target = e.target as HTMLElement;
-		if (target.tagName === 'A' && sidebar?.classList.contains('open')) {
+		if (target.tagName === "A" && sidebar?.classList.contains("open")) {
 			closeSidebar();
 		}
 	});
-	
+
 	(window as any).openSidebar = openSidebar;
 </script>
 
@@ -51,11 +92,70 @@ const t = useTranslations(lang);
 		width: 16px;
 		height: 16px;
 	}
-	
+
 	.sidebar-close {
 		display: none;
 	}
-	
+
+	.sidebar a {
+		color: canvastext;
+		text-decoration: none;
+	}
+
+	.treeview {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.treeview ul {
+		list-style: none;
+		padding-left: 20px;
+		margin: 0;
+	}
+
+	.treeview details > ul {
+		display: none;
+	}
+
+	.treeview details[open] > ul {
+		display: block;
+	}
+
+	.treeview summary {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		list-style: none;
+		gap: 6px;
+	}
+
+	.treeview summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.treeview-icon {
+		width: 14px;
+		height: 14px;
+		flex-shrink: 0;
+	}
+
+	.treeview-icon.expand {
+		display: block;
+	}
+
+	.treeview-icon.collapse {
+		display: none;
+	}
+
+	.treeview details[open] > summary .treeview-icon.expand {
+		display: none;
+	}
+
+	.treeview details[open] > summary .treeview-icon.collapse {
+		display: block;
+	}
+
 	@media (max-width: 768px), (orientation: portrait) {
 		.sidebar {
 			position: fixed;
@@ -66,13 +166,13 @@ const t = useTranslations(lang);
 			z-index: 1000;
 			transition: left 0.3s ease;
 			overflow-y: auto;
-			background-color: #c0c0c0;
+			background-color: canvas;
 		}
-		
+
 		.sidebar.open {
 			left: 0;
 		}
-		
+
 		.sidebar-close {
 			display: block;
 			position: absolute;
@@ -84,7 +184,7 @@ const t = useTranslations(lang);
 			cursor: pointer;
 			color: #000000;
 		}
-		
+
 		.sidebar-close:hover {
 			color: #ff0000;
 		}
