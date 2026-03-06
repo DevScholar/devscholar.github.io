@@ -125,13 +125,13 @@ However, they are currently limited to specific platforms. node-ps1-dotnet mainl
 
 ## Next Step
 
-Based on the above exploration, I am developing a unified cross-platform abstraction layer. On Windows, it uses the [node-ps1-dotnet](https://github.com/DevScholar/node-ps1-dotnet) architecture, using WebView2 for interface rendering, and PowerShell and .NET for system interaction. On Linux, it uses the [node-with-gjs](https://github.com/DevScholar/node-with-gjs) architecture, using WebKitGTK for interface rendering, and GJS and GTK for system interaction.
+Based on the above exploration, I developed a unified cross-platform abstraction layer — [node-with-window](https://github.com/DevScholar/node-with-window). It uses an Electron-compatible API, using [node-ps1-dotnet](https://github.com/DevScholar/node-ps1-dotnet) (WPF + WebView2) on Windows and [node-with-gjs](https://github.com/DevScholar/node-with-gjs) (GTK + WebKitGTK) on Linux.
 
-Currently, I do not plan to support macOS, because I cannot afford a MacBook and have not done development on macOS. However, if there is genuine demand, I can try installing an x86 Hackintosh virtual machine on my computer for development. Although newer macOS versions no longer release x86 versions, since my project does not use native code, only scripting languages and IPC, and Apple does not frequently change the JavaScript for Automation API, development should theoretically be possible.
-
-Developers only need to write one set of HTML, CSS, JavaScript frontend code, along with unified JavaScript API calls, without worrying about whether the underlying layer is PowerShell or GJS. The framework will automatically route system API calls to the corresponding platform's native mechanism.
+Developers only need to write one set of HTML, CSS, JavaScript frontend code using Electron-style APIs, without worrying about whether the underlying layer is PowerShell/.NET or GJS. The framework automatically routes system API calls to the corresponding platform's native mechanism.
 
 This solution attempts to combine the advantages of various approaches: maintaining the openness and ecosystem of the web technology stack, significantly reducing application size, supporting deep system integration, and being able to adapt to new-generation JavaScript runtimes like Deno and Bun. The architecture no longer hardcodes Node.js but is abstracted as a general JS runtime interface.
+
+Currently, there is no plan to support macOS, as I cannot afford a MacBook and have not done development on macOS.
 
 From MSHTA's system binding, to Electron's self-contained architecture, to new-generation solutions returning to native system capabilities, the technical trajectory of HTML desktop applications has gone through a cycle. MSHTA used the system's existing runtimes, Electron chose to bundle everything, and new-generation solutions return to the approach of using system runtimes. This time, web standards are more mature, the open-source ecosystem is more complete, and developers have a deeper understanding of cross-platform development.
 
@@ -170,3 +170,5 @@ HTML desktop applications are still evolving.
 [14] node-ps1-dotnet: https://github.com/DevScholar/node-ps1-dotnet
 
 [15] node-with-gjs: https://github.com/DevScholar/node-with-gjs
+
+[16] node-with-window: https://github.com/DevScholar/node-with-window

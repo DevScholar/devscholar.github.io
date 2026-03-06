@@ -125,13 +125,13 @@ node-with-gjs[15] 则是面向 Linux 的对应方案。GJS 是 GNOME 项目的 J
 
 ## 下一步
 
-基于以上探索，我正在开发一个统一的跨平台封装层。在 Windows 上，它使用 [node-ps1-dotnet](https://github.com/DevScholar/node-ps1-dotnet)，利用 WebView2 渲染界面，PowerShell 和 .NET 处理系统交互。在 Linux 上，它使用 [node-with-gjs](https://github.com/DevScholar/node-with-gjs)，利用 WebKitGTK 渲染界面，GJS 和 GTK 处理系统交互。
+基于以上探索，我开发了一个统一的跨平台封装层 —— [node-with-window](https://github.com/DevScholar/node-with-window)。它使用与 Electron 兼容的 API，在 Windows 上使用 [node-ps1-dotnet](https://github.com/DevScholar/node-ps1-dotnet)（WPF + WebView2），在 Linux 上使用 [node-with-gjs](https://github.com/DevScholar/node-with-gjs)（GTK + WebKitGTK）。
 
-目前我没有打算支持 macOS，因为我没有钱买 MacBook 也没有在 macOS 上做过开发。不过如果确实存在需求，我可以尝试在电脑上安装 x86 黑苹果虚拟机进行开发。虽然新版 macOS 不再推出 x86 版本，但由于我的项目不使用原生代码，只使用脚本语言和 IPC，并且苹果公司不会经常变更 JavaScript for Automation 的 API，理论上可以进行开发。
-
-开发者只需编写一套 HTML、CSS、JavaScript 前端代码，以及统一的 JavaScript API 调用，无需关心底层是 PowerShell 还是 GJS。框架会自动将系统 API 调用路由到对应平台的原生机制。
+开发者只需编写一套 HTML、CSS、JavaScript 前端代码，使用 Electron 风格的 API，无需关心底层是 PowerShell/.NET 还是 GJS。框架会自动将系统 API 调用路由到对应平台的原生机制。
 
 这一方案试图结合各家的优点：保持 Web 技术栈的开放性和生态，显著减小应用体积，支持深度系统集成，并且能适配 Deno、Bun 等新一代 JavaScript 运行时。架构不再硬编码 Node.js，而是抽象为通用的 JS 运行时接口。
+
+目前没有支持 macOS 的计划，因为我没有钱买 MacBook 也没有在 macOS 上做过开发。
 
 从 MSHTA 的系统绑定，到 Electron 的自包含架构，再到新一代方案回归系统原生能力，HTML 桌面应用的技术路线经历了一个循环。MSHTA 利用系统已有的运行时，Electron 选择捆绑一切，新一代方案又回到利用系统运行时的思路。这一次，Web 标准更加成熟，开源生态也更完善，开发者对跨平台开发有了更深的理解。
 
@@ -170,3 +170,5 @@ HTML 桌面应用仍然在发展。
 [14] node-ps1-dotnet: https://github.com/DevScholar/node-ps1-dotnet
 
 [15] node-with-gjs: https://github.com/DevScholar/node-with-gjs
+
+[16] node-with-window: https://github.com/DevScholar/node-with-window
