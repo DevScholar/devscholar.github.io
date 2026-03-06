@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Sidebar from '../../components/Sidebar.astro';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Header from '../../../../components/Header.astro';
+import Sidebar from '../../../../components/Sidebar.astro';
 import { getCollection } from 'astro:content';
-import { getLangFromUrl, useTranslations } from '../../i18n/ui';
+import { useTranslations } from '../../../../i18n/ui';
 
 export function getStaticPaths() {
   return [
@@ -30,7 +30,7 @@ const systemProjects = allProjects.filter(p => p.data.category === 'system');
 		<ul>
 			{systemProjects.length > 0 ? systemProjects.map((project) => (
 				<li>
-					<h3><a href={`/${lang}/projects/${project.data.category}/${project.id.split('/').slice(2).join('/').replace(/\.md$/, '')}`}>{project.data.name}</a></h3>
+					<h3><a href={`/${lang}/projects/${project.data.category}/${project.id.split('/').slice(2).join('/').replace(/\.md$/, '')}/`}>{project.data.name}</a></h3>
 					<p>{project.data.description}</p>
 				</li>
 			)) : (
