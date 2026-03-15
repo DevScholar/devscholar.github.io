@@ -15,45 +15,46 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const t = useTranslations(lang as any);
 
-const posts = (await getCollection('devblogs', ({ id }) => {
-  return id.startsWith(lang + '/');
-})).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
-const projects = await getCollection('projects', ({ id }) => {
+const homePages = await getCollection('home', ({ id }) => {
   return id.startsWith(lang + '/');
 });
 
-const getPostSlug = (id: string, lang: string) => {
-  return id.replace(/^[^/]+\//, '').replace(/\.md$/, '');
-};
+const homePage = homePages[0];
+const { Content, headings } = await homePage.render();
+const hasH1Heading = headings.some(h => h.depth === 1);
 ---
 
-<BaseLayout title="DevScholar" lang={lang}>
+<BaseLayout title={homePage.data.title + ' - DevScholar'} lang={lang}>
 	<Header slot="header" />
 	<Sidebar slot="sidebar" />
 	
 	<section class="home">
-		<h1>{t('welcome')}</h1>
-		<p>{t('welcomeDesc')}</p>
+		{!hasH1Heading && (
+			<Content />
+		)}
+		{hasH1Heading && (
+			<div class="content">
+				<Content />
+			</div>
+		)}
 	</section>
 </BaseLayout>
 
 <style>
-	.home h2 {
+	.home :global(h1:first-of-type) {
+		display: none;
+	}
+	.home :global(.content h1:first-of-type) {
+		display: none;
+	}
+	.home :global(h2) {
 		margin-top: 30px;
 	}
-	.devblogs-list, .project-list {
+	.home :global(ul) {
 		list-style: disc;
 		padding-left: 20px;
 	}
-	.project-list li {
-		margin-bottom: 15px;
-	}
-	.project-list h3 {
-		margin: 0 0 5px 0;
-	}
-	.project-list p {
-		margin: 0;
-		color: #808080;
+	.home :global(li) {
+		margin-bottom: 10px;
 	}
 </style>

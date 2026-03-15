@@ -22,4 +22,12 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { devblogs, projects };
+const home = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+});
+
+export const collections = { devblogs, projects, home };
