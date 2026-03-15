@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+import { languages } from '../i18n/languages';
+
+const langs = Object.keys(languages);
+---
+
+<BaseLayout title="Select Language - DevScholar" lang="en-us">
+	<Header slot="header" />
+	<Sidebar slot="sidebar" />
+	
+	<section class="lang-select">
+		<h1>Please Select a Language</h1>
+		
+		<div class="search-box">
+			<input type="text" id="lang-search" placeholder="Search languages..." />
+		</div>
+		
+		<ul id="lang-list" class="lang-list">
+			{langs.map((lang) => (
+				<li data-lang={lang}>
+					<a href={`/${lang}/`}>{languages[lang as keyof typeof languages]}</a>
+				</li>
+			))}
+		</ul>
+	</section>
+</BaseLayout>
+
+<script>
+	const userLang = navigator.language || (navigator as any).userLanguage;
+	const preferredLang = userLang.toLowerCase();
+	
+	const langList = document.getElementById('lang-list');
+	const langItems = Array.from(langList?.querySelectorAll('li') || []);
+	const searchInput = document.getElementById('lang-search') as HTMLInputElement;
+	
+	function sortLanguages() {
+		const current = langItems.sort((a, b) => {
+			const aLang = a.getAttribute('data-lang') || '';
+			const bLang = b.getAttribute('data-lang') || '';
+			
+			const aMatch = preferredLang.startsWith(aLang.split('-')[0]);
+			const bMatch = preferredLang.startsWith(bLang.split('-')[0]);
+			
+			if (aMatch && !bMatch) return -1;
+			if (!aMatch && bMatch) return 1;
+			return aLang.localeCompare(bLang);
+		});
+		
+		current.forEach(item => langList?.appendChild(item));
+	}
+	
+	sortLanguages();
+	
+	searchInput?.addEventListener('input', (e) => {
+		const query = (e.target as HTMLInputElement).value.toLowerCase();
+		langItems.forEach(item => {
+			const lang = item.getAttribute('data-lang') || '';
+			const text = item.textContent?.toLowerCase() || '';
+			if (lang.includes(query) || text.includes(query)) {
+				item.style.display = '';
+			} else {
+				item.style.display = 'none';
+			}
+		});
+	});
+</script>
+
+<style>
+	.lang-select {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+	.lang-select h1 {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	.search-box {
+		margin-bottom: 20px;
+	}
+	.search-box input {
+		width: 100%;
+		padding: 10px 15px;
+		font-size: 16px;
+		border: 1px solid #808080;
+		border-radius: 4px;
+	}
+	.lang-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.lang-list li {
+		margin: 10px 0;
+	}
+	.lang-list a {
+		display: block;
+		padding: 15px 20px;
+		background-color: #f5f5f5;
+		color: #0000ff;
+		text-decoration: none;
+		border-radius: 4px;
+		transition: background-color 0.2s;
+	}
+	.lang-list a:hover {
+		background-color: #e0e0e0;
+	}
+</style>
