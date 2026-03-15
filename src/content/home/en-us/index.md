@@ -7,10 +7,10 @@ description: "This website contains information about my programming projects."
 
 This website contains information about my programming projects.
 
-## DevBlogs
+## [DevBlogs](/en-us/devblogs/)
 
 Check out my technical blog posts about various programming topics.
 
-## Projects
+## [Projects](/en-us/projects/web/)
 
 Explore my projects including web applications and system tools.
