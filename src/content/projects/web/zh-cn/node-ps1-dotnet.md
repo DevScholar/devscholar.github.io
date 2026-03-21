@@ -5,7 +5,7 @@ category: "web"
 ---
 
 # Node PS1 for .NET
-![WebView2 示例](/assets/images/screenshots/node-ps1-dotnet-webview2.png)
+![WebView2 示例](/assets/images/screenshots/node-ps1-dotnet/examples/webview2/node-ps1-dotnet-webview2.png)
 
 Node PS1 for .NET 是适用于 Node.js/Deno/Bun 对 .NET Framework 的绑定，其 API 风格模仿微软的 Node API for .NET，但使用系统自带的低版本 .NET 以减小应用程序体积。并且用跨进程通信 (IPC) 替代 C++ Addon 以兼容多种 JS 脚本宿主。此项目为 GUI 程序（含 WinForms 和 WPF）和 WebView2 提供了第一等支持，有开箱即用的示例。
 

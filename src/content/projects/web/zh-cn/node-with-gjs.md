@@ -7,7 +7,7 @@ category: "web"
 
 # Node with GJS
 
-![WebKitGTK 示例](/assets/images/screenshots/node-with-gjs-webkitgtk.png)
+![WebKitGTK 示例](/assets/images/screenshots/node-with-gjs/webkit/counter.png)
 
 Node with GJS 是适用于 Node.js/Deno/Bun 对 GNOME JavaScript(GJS) 的绑定，其 API 风格模仿启用了模块支持 (`-m`) 的 GJS。并且用跨进程通信 (IPC) 替代 C++ Addon 以兼容多种 JS 脚本宿主。此项目为 GUI 程序（含 GTK 4 和 Adwaita）和 WebKitGTK 提供了第一等支持，有开箱即用的示例。
 
